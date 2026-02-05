@@ -119,7 +119,9 @@ const CHAIN_THEME_LIGHT: Record<UniverseChainId, ChainTheme> = {
   [UniverseChainId.Blast]: { bgColor: 'rgba(252, 252, 3, 0.16)', textColor: 'rgba(17, 20, 12, 1)' },
   [UniverseChainId.Bnb]: { bgColor: '#EAB20033', textColor: '#EAB200' },
   [UniverseChainId.Celo]: { bgColor: '#FCFF5233', textColor: '#FCFF52' },
+  [UniverseChainId.Etc]: { bgColor: '#00D39533', textColor: '#00D395' }, // ETC green
   [UniverseChainId.Monad]: { bgColor: 'rgba(115, 91, 248, 0.08)', textColor: '#735BF8' },
+  [UniverseChainId.Mordor]: { bgColor: '#00D39533', textColor: '#00D395' }, // ETC testnet - same as ETC
   [UniverseChainId.Optimism]: { bgColor: '#FF042033', textColor: '#FF0420' },
   [UniverseChainId.Polygon]: { bgColor: '#9558FF33', textColor: '#9558FF' },
   [UniverseChainId.Sepolia]: { bgColor: '#6B8AFF33', textColor: '#6B8AFF' },

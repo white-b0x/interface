@@ -2,7 +2,6 @@ import { useMemo } from 'react'
 import { useExtractedColors, useSporeColors } from 'ui/src'
 import { GlobalColorNames, colors as GlobalColors, GlobalPalette, opacify } from 'ui/src/theme'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { assert } from 'utilities/src/errors'
 import { hexToRGB } from 'utilities/src/theme/colors'
 
 export function getNetworkColorKey(chainId: UniverseChainId): `chain_${UniverseChainId}` {
@@ -15,10 +14,12 @@ export function useNetworkColors(chainId: UniverseChainId): {
   background: string
 } {
   const colors = useSporeColors()
-  const color = colors[getNetworkColorKey(chainId)].val
+  const colorKey = getNetworkColorKey(chainId)
+  // @ts-expect-error - ETC/Mordor chain colors may not be defined in theme
+  const colorValue = colors[colorKey]?.val
 
-  const foreground = color
-  assert(foreground, 'Network color is not defined in Theme')
+  // Fallback to Ethereum color if chain color is not defined (e.g., ETC, Mordor)
+  const foreground = colorValue ?? colors.chain_1.val
 
   return {
     foreground,

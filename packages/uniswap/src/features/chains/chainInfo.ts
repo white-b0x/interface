@@ -4,7 +4,9 @@ import { BASE_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/base'
 import { BLAST_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/blast'
 import { BNB_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/bnb'
 import { CELO_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/celo'
+import { ETC_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/etc'
 import { MAINNET_CHAIN_INFO, SEPOLIA_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/mainnet'
+import { MORDOR_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/mordor'
 import { MONAD_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/monad'
 import { OPTIMISM_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/optimism'
 import { POLYGON_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/polygon'
@@ -35,12 +37,14 @@ export const ORDERED_CHAINS = [
   BLAST_CHAIN_INFO,
   AVALANCHE_CHAIN_INFO,
   CELO_CHAIN_INFO,
+  ETC_CHAIN_INFO,
   WORLD_CHAIN_INFO,
   SONEIUM_CHAIN_INFO,
   ZORA_CHAIN_INFO,
   ZKSYNC_CHAIN_INFO,
   SEPOLIA_CHAIN_INFO,
   UNICHAIN_SEPOLIA_CHAIN_INFO,
+  MORDOR_CHAIN_INFO,
 ] as const satisfies UniverseChainInfo[]
 
 type ConstChainInfo<P extends Platform = Platform> = Extract<(typeof ORDERED_CHAINS)[number], { platform: P }>
@@ -79,6 +83,7 @@ export const UNIVERSE_CHAIN_INFO = {
   [UniverseChainId.Blast]: BLAST_CHAIN_INFO,
   [UniverseChainId.Avalanche]: AVALANCHE_CHAIN_INFO,
   [UniverseChainId.Celo]: CELO_CHAIN_INFO,
+  [UniverseChainId.Etc]: ETC_CHAIN_INFO,
   [UniverseChainId.WorldChain]: WORLD_CHAIN_INFO,
   [UniverseChainId.Soneium]: SONEIUM_CHAIN_INFO,
   [UniverseChainId.Zora]: ZORA_CHAIN_INFO,
@@ -88,6 +93,7 @@ export const UNIVERSE_CHAIN_INFO = {
   // TESTNET
   [UniverseChainId.Sepolia]: SEPOLIA_CHAIN_INFO,
   [UniverseChainId.UnichainSepolia]: UNICHAIN_SEPOLIA_CHAIN_INFO,
+  [UniverseChainId.Mordor]: MORDOR_CHAIN_INFO,
 
   // SVM
   [UniverseChainId.Solana]: SOLANA_CHAIN_INFO,

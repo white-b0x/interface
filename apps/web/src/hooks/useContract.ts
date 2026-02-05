@@ -155,8 +155,13 @@ export function useV4NFTPositionManagerContract(
   const account = useAccount()
   const chainIdToUse = chainId ?? account.chainId
 
+  // Some chains (like ETC, Mordor) may not be in the SDK's address map
+  const addressMap =
+    chainIdToUse && chainIdToUse in CHAIN_TO_ADDRESSES_MAP
+      ? CHAIN_TO_ADDRESSES_MAP[chainIdToUse as unknown as keyof typeof CHAIN_TO_ADDRESSES_MAP]
+      : undefined
   const contract = useContract<Erc721>({
-    address: chainIdToUse ? CHAIN_TO_ADDRESSES_MAP[chainIdToUse].v4PositionManagerAddress : undefined,
+    address: addressMap?.v4PositionManagerAddress,
     ABI: NFTPositionManagerABI,
     withSignerIfPossible,
     chainId: chainIdToUse,

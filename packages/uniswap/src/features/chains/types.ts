@@ -18,7 +18,11 @@ export enum UniverseChainId {
   Blast = UniswapSDKChainId.BLAST,
   Bnb = UniswapSDKChainId.BNB,
   Celo = UniswapSDKChainId.CELO,
+  // Ethereum Classic (not in Uniswap SDK)
+  Etc = 61,
   Monad = UniswapSDKChainId.MONAD,
+  // Mordor testnet for Ethereum Classic (not in Uniswap SDK)
+  Mordor = 63,
   Optimism = UniswapSDKChainId.OPTIMISM,
   Polygon = UniswapSDKChainId.POLYGON,
   Sepolia = UniswapSDKChainId.SEPOLIA,
