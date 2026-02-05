@@ -5,22 +5,18 @@ import { buildChainTokens } from 'uniswap/src/features/chains/evm/tokens'
 import { NetworkLayer, RPCType, UniverseChainId, UniverseChainInfo } from 'uniswap/src/features/chains/types'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import { buildUSDC } from 'uniswap/src/features/tokens/stablecoin'
+import { buildUSC } from 'uniswap/src/features/tokens/stablecoin'
 
-// ETC stablecoins - deploy and update addresses as needed
+// ETC stablecoins - USC (Classic USD) is the primary stablecoin on ETC
 const tokens = buildChainTokens({
   stables: {
-    // Placeholder - deploy stablecoins to ETC
-    USDC: buildUSDC('0x0000000000000000000000000000000000000000', UniverseChainId.Etc),
+    // Classic USD Stablecoin (USC) on ETC mainnet
+    USDC: buildUSC('0xDE093684c796204224BC081f937aa059D903c52a', UniverseChainId.Etc),
   },
 })
 
 // ETC RPC endpoints
-const ETC_RPC_URLS = [
-  'https://etc.rivet.link',
-  'https://etc.etcdesktop.com',
-  'https://etc.mytokenpocket.vip',
-]
+const ETC_RPC_URLS = ['https://etc.rivet.link', 'https://etc.etcdesktop.com', 'https://etc.mytokenpocket.vip']
 
 export const ETC_CHAIN_INFO = {
   id: UniverseChainId.Etc,
@@ -69,11 +65,11 @@ export const ETC_CHAIN_INFO = {
   supportsV4: false, // V4 requires EIP-1153 (post-Olympia upgrade)
   supportsNFTs: true,
   wrappedNativeCurrency: {
-    name: 'Wrapped ETC',
+    name: 'Wrapped Ether',
     symbol: 'WETC',
     decimals: 18,
-    // WETC address on ETC mainnet - deploy and update
-    address: '0x0000000000000000000000000000000000000000',
+    // WETC address on ETC mainnet
+    address: '0x1953cab0E5bFa6D4a9BaD6E05fD46C1CC6527a5a',
   },
   gasConfig: {
     send: {

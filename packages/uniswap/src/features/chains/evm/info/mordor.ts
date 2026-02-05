@@ -5,21 +5,18 @@ import { buildChainTokens } from 'uniswap/src/features/chains/evm/tokens'
 import { NetworkLayer, RPCType, UniverseChainId, UniverseChainInfo } from 'uniswap/src/features/chains/types'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import { buildUSDC } from 'uniswap/src/features/tokens/stablecoin'
+import { buildUSC } from 'uniswap/src/features/tokens/stablecoin'
 
-// Mordor testnet stablecoins - deploy and update addresses as needed
+// Mordor testnet stablecoins - USC (Classic USD) on Mordor
 const tokens = buildChainTokens({
   stables: {
-    // Placeholder - deploy stablecoins to Mordor
-    USDC: buildUSDC('0x0000000000000000000000000000000000000000', UniverseChainId.Mordor),
+    // Classic USD Stablecoin (USC) on Mordor testnet
+    USDC: buildUSC('0xDE093684c796204224BC081f937aa059D903c52a', UniverseChainId.Mordor),
   },
 })
 
 // Mordor RPC endpoints
-const MORDOR_RPC_URLS = [
-  'https://rpc.mordor.etccooperative.org',
-  'https://mordor.etcdesktop.com',
-]
+const MORDOR_RPC_URLS = ['https://rpc.mordor.etccooperative.org', 'https://mordor.etcdesktop.com']
 
 export const MORDOR_CHAIN_INFO = {
   id: UniverseChainId.Mordor,
@@ -48,7 +45,7 @@ export const MORDOR_CHAIN_INFO = {
   logo: ETHEREUM_LOGO,
   nativeCurrency: {
     name: 'Mordor ETC',
-    symbol: 'mETC',
+    symbol: 'METC',
     decimals: 18,
     address: DEFAULT_NATIVE_ADDRESS_LEGACY,
     logo: ETHEREUM_LOGO,
@@ -68,11 +65,11 @@ export const MORDOR_CHAIN_INFO = {
   supportsV4: false, // V4 requires EIP-1153 (post-Olympia upgrade)
   supportsNFTs: true,
   wrappedNativeCurrency: {
-    name: 'Wrapped mETC',
-    symbol: 'WmETC',
+    name: 'Wrapped Ether',
+    symbol: 'WETC',
     decimals: 18,
-    // WETC address on Mordor - deploy and update
-    address: '0x0000000000000000000000000000000000000000',
+    // WETC address on Mordor testnet (same as mainnet)
+    address: '0x1953cab0E5bFa6D4a9BaD6E05fD46C1CC6527a5a',
   },
   gasConfig: {
     send: {

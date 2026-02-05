@@ -27,3 +27,10 @@ export const buildUSDT = createTokenFactory({
   name: 'Tether USD',
   symbol: 'USDT',
 })
+
+/** Builds a metadata object representing USC (Classic USD) for Ethereum Classic chains. */
+export const buildUSC = createTokenFactory({
+  decimals: 6,
+  name: 'Classic USD',
+  symbol: 'USC',
+})
