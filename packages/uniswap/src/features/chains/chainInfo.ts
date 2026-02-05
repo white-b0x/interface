@@ -1,3 +1,4 @@
+import { ANVIL_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/anvil'
 import { ARBITRUM_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/arbitrum'
 import { AVALANCHE_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/avalanche'
 import { BASE_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/base'
@@ -41,6 +42,8 @@ export const ORDERED_CHAINS = [
   ZKSYNC_CHAIN_INFO,
   SEPOLIA_CHAIN_INFO,
   UNICHAIN_SEPOLIA_CHAIN_INFO,
+  // Local development
+  ANVIL_CHAIN_INFO,
 ] as const satisfies UniverseChainInfo[]
 
 type ConstChainInfo<P extends Platform = Platform> = Extract<(typeof ORDERED_CHAINS)[number], { platform: P }>
@@ -91,6 +94,9 @@ export const UNIVERSE_CHAIN_INFO = {
 
   // SVM
   [UniverseChainId.Solana]: SOLANA_CHAIN_INFO,
+
+  // LOCAL DEVELOPMENT
+  [UniverseChainId.Anvil]: ANVIL_CHAIN_INFO,
 } as const satisfies AllChainsMap
 
 export const GQL_MAINNET_CHAINS = ORDERED_EVM_CHAINS.filter((chain) => !chain.testnet).map(

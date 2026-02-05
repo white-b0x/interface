@@ -113,6 +113,7 @@ interface ChainTheme {
 
 const CHAIN_THEME_LIGHT: Record<UniverseChainId, ChainTheme> = {
   [UniverseChainId.Mainnet]: { bgColor: '#6B8AFF33', textColor: '#6B8AFF' },
+  [UniverseChainId.Anvil]: { bgColor: '#6B8AFF33', textColor: '#6B8AFF' }, // Local testnet - uses Ethereum colors
   [UniverseChainId.ArbitrumOne]: { bgColor: '#00A3FF33', textColor: '#00A3FF' },
   [UniverseChainId.Avalanche]: { bgColor: '#E8414233', textColor: '#E84142' },
   [UniverseChainId.Base]: { bgColor: '#0052FF33', textColor: '#0052FF' },
