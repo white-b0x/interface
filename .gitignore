@@ -69,12 +69,14 @@ packages/uniswap/src/i18n/locales/source/*_old.json
 # auto-generated test ids
 apps/mobile/.maestro/scripts/testIds.js
 
-# claude
+# Claude Code working directory (local only)
+.claude/
+CLAUDE.md
 claude.local.md
 CLAUDE.local.md
-.claude/settings.local.json
-.claude/local/
-**/*/.claude/user/*
+
+# Internal development directory
+.local/
 
 # cursor
 .cursor/mcp.json
